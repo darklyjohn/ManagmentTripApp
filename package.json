@@ -1,0 +1,15 @@
+{
+  "name": "ManagmentTripApp",
+  "description": "A managment of trip app",
+  "repository": "https://github.com/darklyproject/managmenttripapp",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-sass": "~0.4.0",
+    "grunt-wiredep": "^2.0.0",
+    "karma": "~0.10",
+    "karma-jasmine": "~0.1",
+    "karma-junit-reporter": "~0.1",
+    "karma-ng-scenario": "~0.1",
+    "phantomjs": "~1.9"
+  }
+}

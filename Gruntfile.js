@@ -9,7 +9,7 @@ module.exports = function(grunt) {
         pkg: grunt.file.readJSON('package.json'),
         sass: {
             // This will be executed when we run the 'development' task below
-            development: {
+            dev: {
                 options: {
                     style: 'expanded'
                 },
@@ -54,15 +54,27 @@ module.exports = function(grunt) {
                 src: 'app/js/*.js',
                 dest: 'app/js/concat.js'
             }
+        },
+        watch: {
+            scripts: {
+                files: '**/*.js', // tous les fichiers JavaScript de n'importe quel dossier
+                tasks: ['concat:dev']
+            },
+            styles: {
+                files: '**/*.scss', // tous les fichiers Sass de n'importe quel dossier
+                tasks: ['sass:dev']
+            }
         }
     });
 
 // Load the plugin that provides the "sass" task.
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-wiredep');
 
 // Our tasks
+    grunt.registerTask('default', ['watch'])
     grunt.registerTask('development', ['wiredep:development','concat']);
     grunt.registerTask('deploy', ['sass:deploy']);
 

@@ -3,29 +3,45 @@
  */
 'use strict';
 
-angular.module('controllers', [])
-    .controller('TripCtrl', function ($scope) {
-        $scope.trips = [{
-            "id": "0",
-            "country": "Hungary",
-            "town": "Budapest",
-            "date": "18/02/2015"
-        },
-            {
-                "id": "1",
-                "country": "Hungary",
-                "town": "Budapest",
-                "date": "19/02/2015"
-            },
-            {
-                "id": "1",
-                "country": "Portugal",
-                "town": "Porto",
-                "date": "07/04/2015"
-            }
-        ];
+//angular.module('controllers', ['tripService'])
+mgmtTripApp.filter('rangeFilter', function () {
+        return function (items, rangeInfo) {
+            var filtered = [];
+            var aDate = rangeInfo == undefined ? 0 : Date.parse(rangeInfo.date);
+            var min = rangeInfo == undefined ? 0 : parseInt(rangeInfo.date);
+            //var max = parseInt(rangeInfo.userMax);
+            // If time is with the range
+            angular.forEach(items, function (item) {
+                //if( item.time >= min && item.time <= max ) {
+                if (item.date = min) {
+                    filtered.push(item);
+                }
+            });
+            return filtered;
+        };
+    });
+mgmtTripApp.controller('TripCtrl', [ '$scope', 'tripList', function ($scope, tripList) {
+        //$scope.trips = [{
+        //    "id": "0",
+        //    "country": "Hungary",
+        //    "town": "Budapest",
+        //    "date": "18/02/2015"
+        //},
+        //    {
+        //        "id": "1",
+        //        "country": "Hungary",
+        //        "town": "Budapest",
+        //        "date": "19/02/2015"
+        //    },
+        //    {
+        //        "id": "1",
+        //        "country": "Portugal",
+        //        "town": "Porto",
+        //        "date": "07/04/2015"
+        //    }
+        //];
 
-
+        $scope.trips = tripList.getTripList();
         $scope.today = function () {
             $scope.dt = new Date();
         };
@@ -63,8 +79,19 @@ angular.module('controllers', [])
         $scope.myselectdate = $scope.dt
 
 
-    })
+    }]);
 
-    .controller('HomeCtrl', function () {
+mgmtTripApp.controller('HomeCtrl', function () {
 
-    })
+    });
+mgmtTripApp.controller('TripDetailCtrl', ['trip', '$scope', 'tripList', function (trip, $scope, tripList) {
+        //$scope.trip = tripList.getTripById(trip);
+   var trips = tripList.getTripList();
+   //$scope.trip = trips.filter(function(el){
+   //     return el.id != trip;
+   //});
+    var arr = [1, 2, 3, 4, 5];
+    $scope.trip = arr.filter(function(val) {
+        return 0 != val % 2;
+    });
+    }]);

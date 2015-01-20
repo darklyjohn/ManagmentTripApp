@@ -26,7 +26,8 @@
                 <span><span class="bold">Id :</span>{{trip.id}}</span>
                 <span><span class="bold">Country :</span>{{trip.country}}</span>
                 <span><span class="bold">Town :</span>{{trip.town}}</span>
-                <span><span class="bold">Date :</span>{{trip.date | date:'dd/MM/YYYY'}}</span>
+                <span><span class="bold">Date :</span>{{trip.startdate | date:'dd/MM/YYYY'}}</span>
+                <span><a href="#/detail/{{trip.id}}"><span class="bold">More details</span></a></span>
             </div>
         </div>
 

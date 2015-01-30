@@ -3,29 +3,51 @@
  */
 "use strict";
 
-//var mgmtTripApp = angular.module('app',['ngRoute','controllers','ui.bootstrap', 'tripService']);
-var mgmtTripApp = angular.module('app',['ngRoute','ui.bootstrap','ui.grid', 'ui.router']);
-mgmtTripApp.config(function($routeProvider){
-        $routeProvider.when('/trip',{
-            templateUrl: 'js/Trip/trip.html',
-            controller: 'TripCtrl'
-        });
-        $routeProvider.when('/home',{
-            templateUrl: 'js/home/home.html',
-            controller: 'HomeCtrl'
-        });
-        $routeProvider.when('/detail/:tripid',{
-            templateUrl: 'js/Trip/detail.html',
-            controller: 'TripDetailCtrl',
-            resolve:{
-                'trip':function($route){
-            return $route.current.params.tripid;
-        }
+var mgmtTripApp = angular.module('app', [ 'ui.bootstrap', 'ui.grid', 'ui.router']);
+
+mgmtTripApp.run(['$state','$log','tripList',function($state, $log, tripList){
+    $log.log('Application start')
+}])
+
+mgmtTripApp.config(['$stateProvider', function ($stateProvider) {
+    $stateProvider
+        .state('trip', {
+            url: 'trip',
+            views: {
+                '': {
+                    templateUrl: "js/Trip/trip.html",
+                    controller: "TripController"
+                }
             }
-        });
-        $routeProvider.otherwise({
-            redirectTo: '/home'
         })
+        .state('home', {
+            url: 'home',
+            views: {
+                '': {
+                    templateUrl: "js/home/home.html",
+                    controller: "HomeCtrl"
+                }
+            }
+
+        })
+        .state('detail', {
+            url: 'detail/:tripid',
+            views: {
+                '': {
+                    templateUrl: 'js/Trip/detail.html',
+                    controller: 'TripController',
+                    resolve: {
+                        trip: ['$stateParams',function ($stateParams) {
+                            return $stateParams.tripid;
+                        }]
+                    }
+                }
+
+            }
+        })
+    //$routeProvider.otherwise({
+    //    redirectTo: '/home'
+    //})
 
 
-    })
+}]);

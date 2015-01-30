@@ -9,8 +9,8 @@
 
     <script src="bower_components/angular/angular.min.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="bower_components/angular-route/angular-route.js"></script>
-    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <!--<script src="bower_components/angular-route/angular-route.js"></script>-->
+    <!--<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>-->
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <script src="bower_components/angular-ui-grid/ui-grid.js"></script>
@@ -37,15 +37,22 @@
         </div>
         <div class="collapse navbar-collapse" id="navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li ng-class="{ active: isActive('/home')}"><a  href="#/home">Home <span class="sr-only">(current)</span></a></li>
-                <li ng-class="{ active: isActive('/trip')}"><a  href="#/trip">Trip</a></li>
+                <li ng-class="{ active: isActive('/home')}"><a  ui-sref="home">Home <span class="sr-only">(current)</span></a></li>
+                <li ng-class="{ active: isActive('/trip')}"><a  ui-sref="trip">Trip</a></li>
             </ul>
         </div>
     </div>
 </nav>
 
 
-<ng-view class="container"></ng-view>
+<!-- Add your site or application content here -->
+<div class="container-fluid">
+    <div ui-view>
+    </div>
+
+    <footer class="footer">
+        <p> DarklyJohn Industry Corp.  </p>
+    </footer>
 
 <script>
 

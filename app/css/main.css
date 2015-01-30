@@ -13,3 +13,8 @@
 .ui-grid-header{
     height: 30px;
 }
+
+.footer {
+    padding-left: 15px;
+    padding-right: 15px;
+}

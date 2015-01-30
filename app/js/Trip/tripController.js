@@ -1,6 +1,6 @@
 'use strict';
 
-mgmtTripApp.controller("TripCtrl", ['$scope', 'tripList', 'uiGridConstants', '$state', function ($scope, tripList, uiGridConstants, $state) {
+mgmtTripApp.controller("TripController", ['$scope', 'tripList', 'uiGridConstants', '$state', function ($scope, tripList, uiGridConstants, $state) {
 
 
     $scope.trips = tripList.getTripList();

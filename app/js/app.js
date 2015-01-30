@@ -26,4 +26,6 @@ mgmtTripApp.config(function($routeProvider){
         $routeProvider.otherwise({
             redirectTo: '/home'
         })
+
+
     })

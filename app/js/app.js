@@ -25,7 +25,7 @@ mgmtTripApp.config(['$stateProvider', function ($stateProvider) {
             views: {
                 '': {
                     templateUrl: "js/home/home.html",
-                    controller: "HomeCtrl"
+                    controller: "HomeController"
                 }
             }
 
@@ -35,7 +35,7 @@ mgmtTripApp.config(['$stateProvider', function ($stateProvider) {
             views: {
                 '': {
                     templateUrl: 'js/Trip/detail.html',
-                    controller: 'TripController',
+                    controller: 'TripDetailCtrl',
                     resolve: {
                         trip: ['$stateParams',function ($stateParams) {
                             return $stateParams.tripid;

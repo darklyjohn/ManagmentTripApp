@@ -1,39 +1,39 @@
-<div class="container-fluid">
     <h2>Trips</h2>
-    <div>
+
         <!--<img src="img/asia_001.jpg" class="thumbnail"/>-->
 
-        <div class="row">
-            <div class="col-md-6">
-                <p class="input-group">
-                    <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="search.date"
-                           is-open="opened"
-                           min-date="minDate" max-date="'2025-06-22'" datepicker-options="dateOptions"
-                           date-disabled="disabled(date, mode)" ng-required="true" close-text="Close"/>
-              <span class="input-group-btn">
-                <button type="button" class="btn btn-default" ng-click="open($event)"><i
-                        class="glyphicon glyphicon-calendar"></i></button>
-              </span>
-                </p>
-            </div>
-            <div class="col-md-6">
-                <input type="text" class="form-control" ng-model="search.country"/>
-            </div>
-        </div>
-
-        <div class="row"
-             ng-repeat="trip in trips | filter:search">
-            <div class="panel panel-default">
-                <div class="panel-body">
-                    <span><span class="bold">Id :</span>{{trip.id}}</span>
-                    <span><span class="bold">Country :</span>{{trip.country}}</span>
-                    <span><span class="bold">Town :</span>{{trip.town}}</span>
-                    <span><span class="bold">Date :</span>{{trip.startdate | date:'dd/MM/YYYY'}}</span>
-                    <span><a href="#/detail/{{trip.id}}"><span class="bold">More details</span></a></span>
-                </div>
-            </div>
+        <!--<div class="form-group row">-->
+            <!--<div class="col-lg-6">-->
+                <!--<p class="input-group">-->
+                    <!--<input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="search.date"-->
+                           <!--is-open="opened"-->
+                           <!--min-date="minDate" max-date="'2025-06-22'" datepicker-options="dateOptions"-->
+                           <!--date-disabled="disabled(date, mode)" ng-required="true" close-text="Close"/>-->
+              <!--<span class="input-group-btn">-->
+                <!--<button type="button" class="btn btn-default" ng-click="open($event)"><i-->
+                        <!--class="glyphicon glyphicon-calendar"></i></button>-->
+              <!--</span>-->
+                <!--</p>-->
+            <!--</div>-->
+            <!--<div class="col-lg-6">-->
+                <!--<input type="text" class="form-control" ng-model="search.country"/>-->
+            <!--</div>-->
+        <!--</div>-->
 
 
-        </div>
-    </div>
-</div>
+            <div ui-grid="gridOptions" external-scopes="tableScope"  ui-grid-resize-columns ui-grid-pinning ui-grid-selection
+                 class="defaultGrid"></div>
+             <!--ng-repeat="trip in trips | filter:search">-->
+            <!--<div class="panel panel-default">-->
+                <!--<div class="panel-body">-->
+                    <!--<span><span class="bold">Id :</span>{{trip.id}}</span>-->
+                    <!--<span><span class="bold">Country :</span>{{trip.country}}</span>-->
+                    <!--<span><span class="bold">Town :</span>{{trip.town}}</span>-->
+                    <!--<span><span class="bold">Date :</span>{{trip.startdate | date:'dd/MM/YYYY'}}</span>-->
+                    <!--<span><a href="#/detail/{{trip.id}}"><span class="bold">More details</span></a></span>-->
+                <!--</div>-->
+            <!--</div>-->
+
+
+
+

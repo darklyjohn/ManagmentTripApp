@@ -4,7 +4,7 @@
 "use strict";
 
 //var mgmtTripApp = angular.module('app',['ngRoute','controllers','ui.bootstrap', 'tripService']);
-var mgmtTripApp = angular.module('app',['ngRoute','ui.bootstrap']);
+var mgmtTripApp = angular.module('app',['ngRoute','ui.bootstrap','ui.grid', 'ui.router']);
 mgmtTripApp.config(function($routeProvider){
         $routeProvider.when('/trip',{
             templateUrl: 'js/Trip/trip.html',

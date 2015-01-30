@@ -2,7 +2,6 @@
  * Created by Jonathan on 18-01-15.
  */
 'use strict'
-//angular.module('tripService',[])
  mgmtTripApp
 .factory('tripList',function(){
 

@@ -4,43 +4,12 @@
         max-width: 1170px;
     }
 }
-.container-narrow > hr {
-    margin: 30px 0;
+
+
+.defaultGrid {
+    width: 100%;
 }
 
-/* Main marketing message and sign up button */
-.jumbotron {
-    text-align: center;
-    border-bottom: 1px solid #e5e5e5;
-}
-.jumbotron .btn {
-    font-size: 21px;
-    padding: 14px 24px;
-}
-.container-fluid{
-    margin-top:60px;
-}
-.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
-    background-color: #1C5B98;
-}
-.transparency
-{
-    background:none;
-    border:none;
-    box-shadow:none;
-}
-.drop-box {
-    background: #F8F8F8;
-    border: 5px dashed #DDD;
-    width: 250px;
-    height: 80px;
-    text-align: center;
-    padding-top: 25px;
-    float: left;
-    margin-left: 30px;
-}
-
-.nav > li > a:hover, .nav > li > a:focus {
-    background-color: #1C5B98;
-    color: #ffffff;
+.ui-grid-header{
+    height: 30px;
 }

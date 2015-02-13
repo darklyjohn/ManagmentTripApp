@@ -1,1 +1,44 @@
-<h1>Trip {{trip}}</h1>
+<h1>Trip {{currentTrip}}</h1>
+<div class="container-fluid">
+    <form name="form.activity_form" novalidate>
+        <div class="form-group row">
+            <div class="col-lg-3">
+                <p class="input-group">
+                    <span class="input-group-addon">Début</span>
+                    <input class="form-control" type="date" ng-model="currentTrip.startdate" name="date" disabled/>
+                </p>
+            </div>
+            <div class="col-lg-3">
+                <p class="input-group">
+                    <span class="input-group-addon">Début</span>
+                    <input class="form-control" type="date" ng-model="currentTrip.enddate" name="date" disabled/>
+                </p>
+            </div>
+
+        </div>
+    </form>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+
+        <tr>
+            <td>Id</td>
+            <td>Type</td>
+            <td>Name</td>
+            <td>cost</td>
+            <td>Comment</td>
+        </tr>
+        </thead>
+        <tr ng-repeat="activity in activities">
+            <td>{{activity.id}}</td>
+            <td>{{activity.type }}</td>
+            <td>{{activity.name }}</td>
+            <td>{{activity.cost | currency}}</td>
+            <td>{{activity.comment }}</td>
+        </tr>
+
+
+    </table>
+</div>

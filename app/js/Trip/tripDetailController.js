@@ -3,9 +3,9 @@
  */
 'use strict';
 
-mgmtTripApp.controller('TripDetailCtrl', ['trip', '$scope', 'tripList', function (trip, $scope, tripList) {
+mgmtTripApp.controller('TripDetailCtrl', ['trip', '$scope', 'tripList','activityService', function (trip, $scope, tripList,activityService) {
     //$scope.trip = tripList.getTripById(trip);
-    var trips = tripList.getTripList();
+    $scope.currentTrip = tripList.getTripById(trip);
     //$scope.trip = trips.filter(function(el){
     //     return el.id != trip;
     //});
@@ -13,4 +13,7 @@ mgmtTripApp.controller('TripDetailCtrl', ['trip', '$scope', 'tripList', function
     $scope.trip = arr.filter(function(val) {
         return 0 != val % 2;
     });
+
+
+    $scope.activities = activityService.getActivitiesByTrip(trip);
 }]);
